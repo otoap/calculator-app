@@ -29,9 +29,10 @@ clicker.forEach((btn, index)=> {
         }
 
         //სქრინიდან ვიღებ სტრინგს რომელსაც ვყოფ ნამბერებად და სტრინგად მაგ:(50 + 8) სტრინგი შუა, ნამბერი გარე
-        if(!isNaN(newBtn) && counter < 1) {
-           Number(firstNum += newBtn);
-        }else if(isNaN(newBtn)&&newBtn!="="&&newBtn!="RESET"&&newBtn!="DEL") {
+        if(!isNaN(newBtn) && counter < 1) { //პირობა არასწორად მიწერია და მარტო მთელ რიცხვებს წერს "." ვერ აღიქვამს.
+           firstNum += newBtn;              //უნდა შევზღუდო ტოლობამდე ერთზე მეტი სიმბოლოს გამოყენება;
+           console.log("logeloge", firstNum, newBtn)
+        }else if(isNaN(newBtn)&&newBtn!="="&&newBtn!="RESET"&&newBtn!="DEL"&&newBtn!=".") {
             act = newBtn;
             counter++;
         }else if(!isNaN(newBtn)){
@@ -45,7 +46,7 @@ clicker.forEach((btn, index)=> {
         console.log(typeof firstNum,typeof act,typeof secondNum, typeof result)
 
         //თუ დავაჭირე ტოლობას და სქრინზე არსებული ოპერაცია შეიცავს მათემატიკურ სიმბოლოს და ბოლო კლიკი ნამბერია
-        //მაშინ უნდა შესრულდეს გამოთვლა, მაგრამ საჭიროა ოპერაცია გადავიყვანო ჯერ ნამბერში.......
+        //მხოლოდ მაშინ უნდა შესრულდეს კალულაცია
         if(newBtn == "=" && regex.test(screen.textContent) && !isNaN(screen.textContent[screen.textContent.length-1])) {
             console.log(screen.textContent)
 
@@ -55,21 +56,19 @@ clicker.forEach((btn, index)=> {
                 switch (act) {
                     case "/":
                         result = Number(firstNum)/Number(secondNum);
-                        screen.innerHTML = Number(result);
-                        
+                        screen.innerHTML = Number(result.toFixed(2));
                         console.log(result)
                         break;
                     case "*":
                         result = Number(firstNum)*Number(secondNum);
-                        screen.innerHTML = Number(result);
-                        
+                        screen.innerHTML = Number(result.toFixed(2));
                         console.log(result);
                         break
                     case "+":
                         result = Number(firstNum)+Number(secondNum);
-                        screen.innerHTML = Number(result);
-                        if(!isNaN(newBtn)){
-                            firstNum = Number(result);
+                        screen.innerHTML = Number(result.toFixed(2));
+                        if(isNaN(newBtn)){
+                            firstNum = result;
                         }else{
                             firstNum=0
                         }
@@ -77,9 +76,8 @@ clicker.forEach((btn, index)=> {
                         break
                     case "-":
                         result = Number(firstNum)-Number(secondNum);
-                        screen.innerHTML = Number(result);
+                        screen.innerHTML = Number(result.toFixed(2));
                         firstNum = Number(result);
-                       
                         console.log(result);
                         break
                     default:
@@ -87,16 +85,19 @@ clicker.forEach((btn, index)=> {
                 }
             }
             console.log(result)
-            result = 0
+            firstNum = result
+            result = 0;
+            counter = 0;
+            secondNum = 0;
         }
 
-        //თუ დილეითს დავაჭირე უნდა წაიშალოს ბოლო შეყვანილი ციფრი და თუ ბოლოც წავშალე ჩაიწეროს 0
+        //DEL თუ დილეითს დავაჭირე უნდა წაიშალოს ბოლო შეყვანილი ციფრი და თუ ბოლოც წავშალე ჩაიწეროს 0
         let arr = Array.from(screen.textContent);
         if(newBtn == "DEL") {
             if(screen.textContent.length>1){
                 arr.pop();
                 let str = arr.join("");
-                firstNum = Number(str);
+                firstNum = Number(str)
                 screen.innerHTML = str;
             }else{
                 screen.innerHTML = "0";
@@ -118,3 +119,5 @@ clicker.forEach((btn, index)=> {
 
     })
 })
+
+console.log(eval(10+5))
