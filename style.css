@@ -8,12 +8,17 @@
 
 body {
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3a4663;
 }
 
 main {
     background-color: #3a4663;
     padding: 3rem 2.4rem;
     background-color: #3a4663;
+    width: 37.5rem;
 }
 
 h1 {
@@ -51,17 +56,49 @@ span {
 
 .positions {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
     padding: 0 0.7rem;
 }
 
-.switcher {
+input {
     background-color: #242d44;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     padding: 0.5rem;
     margin-top: 0.5rem;
     border-radius: 13px;
-    display: flex;
-    justify-content: start;
+    max-width: 7.1rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    /* WebKit/Blink browsers */
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: #d03f2f;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input::-moz-range-thumb {
+    /* Firefox */
+    -moz-appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: #d03f2f;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input::-ms-thumb {
+    /* Internet Explorer and Edge */
+    -ms-appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: #d03f2f;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .dot {
@@ -111,6 +148,7 @@ button {
     box-shadow: inset 0 -4px 0 0 #b3a497;
     background-color: #eae3dc;
     border: none;
+    cursor: pointer;
 }
 
 .del, .reset {
@@ -134,4 +172,181 @@ button {
     box-shadow: inset 0 -4px 0 0 #93261a;
     background-color: #d03f2f;
     color: #fff;
+}
+
+
+.del:hover, .reset:hover {
+    box-shadow: inset 0 -4px 0 0 #414e73;
+    background-color: #a2b2e1;
+}
+
+.equal:hover {
+    box-shadow: inset 0 -4px 0 0 #93261a;
+    background-color: #f96b5b;
+}
+
+button:hover {
+    box-shadow: inset 0 -4px 0 0 #a79e91;
+    background-color: #fff;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #f96b5b;
+}
+
+input::-moz-range-thumb:hover {
+    background-color: #f96b5b;
+}
+
+input::-ms-thumb:hover {
+    background-color: #f96b5b;
+}
+
+/*theme 2*/
+
+.theme-2 main {
+    background-color: #e6e6e6;
+}
+
+.theme-2 h1, .theme-2 h6, .theme-2 span {
+    color: #36362c;
+}
+
+.theme-2 .screen {
+    background-color: #eeeeee;
+}
+
+.theme-2 .calc-display {
+    color: #36362c;
+}
+
+.theme-2 input {
+    background-color: #d2cdcd;
+}
+
+.theme-2 .keyboard {
+    background-color: #d2cdcd;
+}
+
+.theme-2 .del, .theme-2 .reset {
+    box-shadow: inset 0 -4px 0 0 #1b6066;
+    background-color: #378187;
+}
+
+.theme-2 .del:hover, .theme-2 .reset:hover {
+    box-shadow: inset 0 -4px 0 0 #1b6066;
+    background-color: #62b5bc;
+}
+
+.theme-2 .equal {
+    box-shadow: inset 0 -4px 0 0 #873901;
+    background-color: #c85402;
+}
+
+.theme-2 button:hover {
+    box-shadow: inset 0 -4px 0 0 #a79e91;
+    background-color: #fff;
+}
+
+.theme-2 input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #ff8a38;
+}
+
+.theme-2 input::-moz-range-thumb:hover {
+    background-color: #ff8a38;
+}
+
+.theme-2 input::-ms-thumb:hover {
+    background-color: #ff8a38;
+}
+
+
+/*theme 3*/
+
+.theme-3 main {
+    background-color: #17062a;
+}
+
+.theme-3 h1, .theme-3 h6, .theme-3 span {
+    color: #ffe53d;
+}
+
+.theme-3 .screen {
+    background-color: #1e0936;
+}
+
+.theme-3 .calc-display {
+    color: #ffe53d;
+}
+
+.theme-3 input {
+    background-color: #1e0936;
+}
+
+.theme-3 .keyboard {
+    background-color: #1e0936;
+}
+
+.theme-3 .del, .theme-3 .reset {
+    box-shadow: inset 0 -4px 0 0 #be15f4;
+    background-color: #56077c;
+}
+
+.theme-3 .del:hover, .theme-3 .reset:hover {
+    box-shadow: inset 0 -4px 0 0 #be15f4;
+    background-color: #8631af;
+    color: #ffffff;
+}
+
+.theme-3 .equal {
+    box-shadow: inset 0 -4px 0 0 #6cf9f1;
+    background-color: #00ded0;
+    color: #1a2327;
+}
+
+.theme-3 .equal:hover {
+    box-shadow: inset 0 -4px 0 0 #6cf9f1;
+    background-color: #93fff8;
+}
+
+.theme-3 button {
+    box-shadow: inset 0 -4px 0 0 #881c9e;
+    background-color: #331c4d;
+    color: #ffe53d;
+}
+
+.theme-3 button:hover {
+    box-shadow: inset 0 -4px 0 0 #881c9e;
+    background-color: #6c34ac;
+}
+
+.theme-3 input[type="range"]::-webkit-slider-thumb {
+    background-color: #00ded0;
+}
+
+.theme-3 input::-moz-range-thumb {
+    background-color: #00ded0;
+}
+
+.theme-3 input::-ms-thumb {
+    background-color: #00ded0;
+}
+
+.theme-3 input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #93fff8;
+}
+
+.theme-3 input::-moz-range-thumb:hover {
+    background-color: #93fff8;
+}
+
+.theme-3 input::-ms-thumb:hover {
+    background-color: #93fff8;
+}
+
+
+@media (min-width:1440px) {
+    main {
+        width: 54rem;
+    }
 }

@@ -3,8 +3,13 @@ let screen = document.getElementsByClassName("calc-display")[0];
 const buttons = document.getElementsByTagName("button");
 let clicker = Array.from(buttons);
 
+let body = document.getElementsByTagName("body")[0];
+
+let slider = document.getElementById("slider");
+
 let regex = /[+\-*\/]/;
 
+//calculate
 clicker.forEach(element => {
     element.addEventListener("click", ()=> {
         let newElement = element.textContent;
@@ -46,3 +51,23 @@ clicker.forEach(element => {
         }
     })
 });
+
+
+//slider and change themes.
+slider.addEventListener("input", ()=> {
+    if(slider.value == "2") {
+        body.classList.remove("theme-3");
+        body.classList.add("theme-2");
+        body.style.background = "#e6e6e6";
+    }
+    if(slider.value == "3") {
+        body.classList.remove("theme-2");
+        body.classList.add("theme-3");
+        body.style.background = "#17062a";
+    }
+    if(slider.value == "1") {
+        body.classList.remove("theme-2");
+        body.classList.remove("theme-3");
+        body.style.background = "#3a4663";
+    }
+})
