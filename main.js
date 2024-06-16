@@ -19,12 +19,19 @@ clicker.forEach(element => {
             newElement = "*"
         }
 
+        let splited = screen.textContent.split(/[*x+-]/);;
+
         //თუ პირველი ციფრი არის ნამბერი და სქრინზე არის 1 ციფრი და ვაჭერ ნამბერს ან წერტილს გადადის სქრინზე ან
         //else თუ უკვე ნულის გარდა რამე წერია ან ბოლო ელემენტი წერტილია, ამატებს ახალ კლიკს.
         if(screen.textContent == 0 && screen.textContent<=2 && newElement!="." && screen.textContent!="0." && newElement!="DEL" && newElement!="RESET" ) {
             screen.innerHTML = newElement;
-        }else if(newElement!="=" && newElement!="DEL" && newElement!="RESET" ){
-            screen.innerHTML += newElement;
+        }else if(newElement!="=" && newElement!="DEL" && newElement!="RESET"){
+            if(!isNaN(newElement)||!isNaN(screen.textContent[screen.textContent.length-1])){
+                if(newElement=="." && splited[splited.length-1].includes(".")){
+                    return
+                }
+                    screen.innerHTML += newElement;
+            }
         }
 
         //ტოლობის დაჭერისას გამოთვლა.
